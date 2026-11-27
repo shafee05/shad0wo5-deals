@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shad0wo5 Deals — Best Deals, Updated Daily</title>
+<meta name="description" content="Handpicked trending deals on fashion, sneakers, ethnic wear, beauty and home decor from Myntra and AJIO. Updated every day.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f4f5f7; color: #1a1d21; line-height: 1.5; }
+  header { background: #111827; color: #fff; padding: 28px 20px 22px; text-align: center; }
+  header h1 { font-size: 32px; letter-spacing: .5px; }
+  header h1 span { color: #f5b301; }
+  header p { color: #cbd5e1; margin-top: 6px; font-size: 15px; }
+  header .updated { display: inline-block; margin-top: 12px; background: #1f2937; border: 1px solid #374151; border-radius: 999px; padding: 5px 14px; font-size: 13px; color: #e5e7eb; }
+  header .tg { display: inline-block; margin-top: 12px; margin-left: 8px; background: #229ed9; color: #fff; border-radius: 999px; padding: 5px 14px; font-size: 13px; text-decoration: none; font-weight: 600; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 20px 16px 40px; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 18px; }
+  .toolbar input[type="search"] { flex: 1 1 260px; padding: 12px 16px; font-size: 15px; border: 1px solid #d1d5db; border-radius: 10px; background: #fff; outline: none; }
+  .toolbar input[type="search"]:focus { border-color: #f5b301; box-shadow: 0 0 0 3px rgba(245,179,1,.25); }
+  .count { font-size: 14px; color: #6b7280; white-space: nowrap; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .chip { border: 1px solid #d1d5db; background: #fff; border-radius: 999px; padding: 7px 14px; font-size: 13px; cursor: pointer; }
+  .chip.active { background: #111827; color: #fff; border-color: #111827; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; }
+  .card { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.08); display: flex; flex-direction: column; }
+  .card .img { position: relative; aspect-ratio: 4 / 5; background: #e5e7eb; overflow: hidden; }
+  .card .img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .card .off { position: absolute; top: 10px; left: 10px; background: #16a34a; color: #fff; font-size: 13px; font-weight: 700; padding: 4px 9px; border-radius: 6px; }
+  .card .added { position: absolute; top: 10px; right: 10px; background: rgba(17,24,39,.85); color: #fff; font-size: 11px; padding: 4px 8px; border-radius: 6px; }
+  .card .body { padding: 14px 14px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .card .brand { font-size: 12px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase; color: #6b7280; }
+  .card .name { font-size: 15px; font-weight: 600; line-height: 1.35; }
+  .card .meta { font-size: 13px; color: #6b7280; }
+  .card .price { margin-top: 2px; font-size: 18px; font-weight: 800; }
+  .card .price s { font-size: 13px; font-weight: 400; color: #9ca3af; margin-left: 6px; }
+  .card .buy { margin-top: auto; display: block; text-align: center; background: #f5b301; color: #111827; font-weight: 700; font-size: 15px; padding: 11px; border-radius: 9px; text-decoration: none; }
+  .card .buy:hover { background: #e0a400; }
+  .empty { text-align: center; color: #6b7280; padding: 40px 0; grid-column: 1 / -1; }
+  footer { max-width: 1180px; margin: 0 auto; padding: 0 16px 36px; text-align: center; font-size: 12px; color: #9ca3af; }
+  footer a { color: #6b7280; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Shad0wo5 <span>Deals</span></h1>
+  <p>Handpicked trending deals, checked on the store pages and updated every day.</p>
+  <div><span class="updated" id="updated">Updated —</span><a class="tg" href="https://t.me/sales_n_deals" target="_blank" rel="noopener">Telegram: SALES N DEALS</a></div>
+</header>
+<main class="wrap">
+  <div class="toolbar">
+    <input type="search" id="search" placeholder="Search by product, brand, store or category…" aria-label="Search deals">
+    <span class="count" id="count"></span>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="grid" id="grid"></div>
+</main>
+<footer>
+  <p>As an affiliate, we may earn a commission when you buy through links on this page, at no extra cost to you. Prices and availability were checked on the store pages on the update date and may change.</p>
+  <p><a href="https://t.me/sales_n_deals" target="_blank" rel="noopener">Join SALES N DEALS on Telegram</a> for daily deal teasers.</p>
+</footer>
+<script>
+var FALLBACK_DEALS = [{"added": "2026-11-27", "brand": "Reebok", "buy": "https://myntr.it/Xzr5hLT", "category": "Winter wear", "discount": 55, "id": "2026-11-27-reebok-puffer-jacket", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-27-reebok-puffer-jacket.jpg", "mrp": 6299, "name": "Hooded Lightweight Puffer Jacket (Women)", "price": 2834, "rating": "", "store": "Myntra"}, {"added": "2026-11-27", "brand": "Puma", "buy": "https://myntr.it/z4jizBC", "category": "Winter wear", "discount": 60, "id": "2026-11-27-puma-fleece-hoodie", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-27-puma-fleece-hoodie.jpg", "mrp": 5299, "name": "Sport Men's Full-Zip Fleece Hoodie", "price": 2119, "rating": "", "store": "Myntra"}, {"added": "2026-11-27", "brand": "Bond Street By Red Tape", "buy": "https://myntr.it/hkaxuaV", "category": "Sneakers", "discount": 86, "id": "2026-11-27-bondstreet-sneakers", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-27-bondstreet-sneakers.jpg", "mrp": 6599, "name": "Hustle Men Colourblocked High-Top Sneakers", "price": 914, "rating": "4.3 (736)", "store": "Myntra"}, {"added": "2026-11-27", "brand": "KALINI", "buy": "https://myntr.it/F10cL0L", "category": "Ethnic wear", "discount": 70, "id": "2026-11-27-kalini-kurta-set", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-27-kalini-kurta-set.jpg", "mrp": 2499, "name": "Women Ethnic Motifs Embroidered Regular Thread Work Kurta with Trousers & With Dupatta", "price": 746, "rating": "", "store": "Myntra"}, {"added": "2026-11-27", "brand": "Reebok", "buy": "https://myntr.it/ye0mE0n", "category": "Winter wear", "discount": 62, "id": "2026-11-27-reebok-sports-jacket", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-27-reebok-sports-jacket.jpg", "mrp": 6899, "name": "Mock Collar Lightweight Sports Jacket (Men)", "price": 2621, "rating": "", "store": "Myntra"}, {"added": "2026-11-27", "brand": "Nyrika", "buy": "https://ajiio.in/MTwbiZM", "category": "Ethnic wear", "discount": 77, "id": "2026-11-27-nyrika-kurta-beige", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-27-nyrika-kurta-beige.jpg", "mrp": 5300, "name": "Women Embellished Straight Kurta Suit Set", "price": 1219, "rating": "", "store": "AJIO"}, {"added": "2026-11-27", "brand": "Reebok", "buy": "https://ajiio.in/gUeEhmK", "category": "Winter wear", "discount": 66, "id": "2026-11-27-reebok-zip-hoodie", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-27-reebok-zip-hoodie.jpg", "mrp": 4999, "name": "Regular Fit Zip-Front Hoodie with Logo Print", "price": 1680, "rating": "", "store": "AJIO"}, {"added": "2026-11-27", "brand": "Reebok", "buy": "https://ajiio.in/nyh96Fl", "category": "Sneakers", "discount": 61, "id": "2026-11-27-reebok-force-runner", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-27-reebok-force-runner.jpg", "mrp": 4999, "name": "Men Force Runner Running Shoes", "price": 1950, "rating": "", "store": "AJIO"}, {"added": "2026-11-27", "brand": "Nyrika", "buy": "https://ajiio.in/YwUYjIk", "category": "Ethnic wear", "discount": 85, "id": "2026-11-27-nyrika-kurta-pink", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-27-nyrika-kurta-pink.jpg", "mrp": 10899, "name": "Women Embroidered 2-Piece Kurta Suit Set", "price": 1635, "rating": "", "store": "AJIO"}, {"added": "2026-11-27", "brand": "Acai", "buy": "https://ajiio.in/4yUtWL6", "category": "Ethnic wear", "discount": 84, "id": "2026-11-27-acai-kurta-set", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-27-acai-kurta-set.jpg", "mrp": 2699, "name": "Women Embroidered Straight Kurta Set with Dupatta", "price": 440, "rating": "4.2 (157)", "store": "AJIO"}, {"added": "2026-11-26", "brand": "Roadster", "buy": "https://myntr.it/1Ygwl78", "category": "Winter wear", "discount": 56, "id": "2026-11-26-roadster-hoodie", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-26-roadster-hoodie.jpg", "mrp": 1499, "name": "The Roadster Life Co. Hooded Sweatshirt", "price": 659, "rating": "4.2 (2.2k)", "store": "Myntra"}, {"added": "2026-11-26", "brand": "HRX by Hrithik Roshan", "buy": "https://myntr.it/BWeaiYR", "category": "Winter wear", "discount": 58, "id": "2026-11-26-hrx-jacket", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-26-hrx-jacket.jpg", "mrp": 4499, "name": "Men Black Active Solid Detachable Hooded Padded Jacket", "price": 1889, "rating": "4.3 (4.2k)", "store": "Myntra"}, {"added": "2026-11-26", "brand": "Puma", "buy": "https://myntr.it/tB41tFk", "category": "Sneakers", "discount": 70, "id": "2026-11-26-puma-sneakers-myntra", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-26-puma-sneakers-myntra.jpg", "mrp": 4499, "name": "Women Textured Sneakers", "price": 1349, "rating": "4.6 (7.8k)", "store": "Myntra"}, {"added": "2026-11-26", "brand": "Vaseline", "buy": "https://myntr.it/H31Gjkk", "category": "Beauty & winter skincare", "discount": 61, "id": "2026-11-26-vaseline-lotion", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-26-vaseline-lotion.jpg", "mrp": 1070, "name": "Deep Moisture Body Lotion with Ceramide Hyaluron for Dry Skin - 725 ml", "price": 417, "rating": "4.6 (102.7k)", "store": "Myntra"}, {"added": "2026-11-26", "brand": "Fastrack", "buy": "https://myntr.it/vA1Nhr5", "category": "Watches & accessories", "discount": 52, "id": "2026-11-26-fastrack-watch", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-26-fastrack-watch.jpg", "mrp": 995, "name": "Unisex Black Printed Dial & Black Straps Analogue Watch 9915PP101", "price": 477, "rating": "4.4 (130)", "store": "Myntra"}, {"added": "2026-11-26", "brand": "Allen Solly", "buy": "https://ajiio.in/mm9b7Fk", "category": "Winter wear", "discount": 57, "id": "2026-11-26-allen-solly-trench", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-26-allen-solly-trench.jpg", "mrp": 5999, "name": "Women Regular Fit Trench Coat", "price": 2580, "rating": "4.7 (6)", "store": "AJIO"}, {"added": "2026-11-26", "brand": "Biba", "buy": "https://ajiio.in/2D8Y7jv", "category": "Women's ethnic wear", "discount": 62, "id": "2026-11-26-biba-kurta", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-26-biba-kurta.jpg", "mrp": 3999, "name": "Women Floral Print Straight Kurta & Pants Set", "price": 1520, "rating": "3.8 (39)", "store": "AJIO"}, {"added": "2026-11-26", "brand": "Puma", "buy": "https://ajiio.in/Jd49U8g", "category": "Sneakers", "discount": 63, "id": "2026-11-26-puma-smashic", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-26-puma-smashic.jpg", "mrp": 4499, "name": "Smashic Comfort Casual Sneakers", "price": 1665, "rating": "3.8 (16.1k)", "store": "AJIO"}, {"added": "2026-11-26", "brand": "SAF", "buy": "https://ajiio.in/j1W0CfN", "category": "Home decor", "discount": 70, "id": "2026-11-26-saf-wallart", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-26-saf-wallart.jpg", "mrp": 1999, "name": "Set of 3 Framed Wall Art Paintings", "price": 600, "rating": "", "store": "AJIO"}, {"added": "2026-11-26", "brand": "Caprese", "buy": "https://ajiio.in/CRxu6W1", "category": "Accessories", "discount": 83, "id": "2026-11-26-caprese-tote", "image": "https://raw.githubusercontent.com/shafee05/shad0wo5-deals/main/images/deals-2026-11-26-caprese-tote.jpg", "mrp": 4799, "name": "Women Tote Bag with External Zip Pocket", "price": 799, "rating": "", "store": "AJIO"}];
+var FALLBACK_UPDATED = "2026-11-27";
+var allDeals = [];
+var activeCat = "All";
+var query = "";
+
+function esc(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+    return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c];
+  });
+}
+function fmt(n) { return "₹" + Number(n).toLocaleString("en-IN"); }
+function addedLabel(added, updated) {
+  if (!added) return "";
+  if (added === updated) return "Added today";
+  var a = new Date(added + "T00:00:00"), u = new Date(updated + "T00:00:00");
+  if ((u - a) === 86400000) return "Added yesterday";
+  return "Added " + added;
+}
+function fmtDate(iso) {
+  if (!iso) return "";
+  var d = new Date(iso + "T00:00:00");
+  return d.toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+}
+function render(updated) {
+  document.getElementById("updated").textContent = "Updated " + fmtDate(updated);
+  var cats = ["All"];
+  allDeals.forEach(function (d) { if (d.category && cats.indexOf(d.category) === -1) cats.push(d.category); });
+  document.getElementById("chips").innerHTML = cats.map(function (c) {
+    return '<button class="chip' + (c === activeCat ? " active" : "") + '" data-cat="' + esc(c) + '">' + esc(c) + "</button>";
+  }).join("");
+  var q = query.trim().toLowerCase();
+  var list = allDeals.filter(function (d) {
+    if (activeCat !== "All" && d.category !== activeCat) return false;
+    if (!q) return true;
+    return [d.name, d.brand, d.store, d.category].join(" ").toLowerCase().indexOf(q) !== -1;
+  });
+  list.sort(function (a, b) { return (b.added || "").localeCompare(a.added || ""); });
+  document.getElementById("count").textContent = list.length + (list.length === 1 ? " deal" : " deals");
+  var grid = document.getElementById("grid");
+  if (!list.length) { grid.innerHTML = '<p class="empty">No deals match your search.</p>'; return; }
+  grid.innerHTML = list.map(function (d) {
+    var rating = d.rating ? '<div class="meta">' + esc(d.rating) + " ★</div>" : "";
+    return '<article class="card">'
+      + '<div class="img"><img src="' + esc(d.image) + '" alt="' + esc(d.name) + '" loading="lazy">'
+      + '<span class="off">' + esc(d.discount) + '% OFF</span>'
+      + '<span class="added">' + esc(addedLabel(d.added, updated)) + "</span></div>"
+      + '<div class="body"><div class="brand">' + esc(d.brand) + " · " + esc(d.store) + "</div>"
+      + '<div class="name">' + esc(d.name) + "</div>"
+      + '<div class="meta">' + esc(d.category || "") + "</div>" + rating
+      + '<div class="price">' + fmt(d.price) + " <s>" + fmt(d.mrp) + "</s></div>"
+      + '<a class="buy" href="' + esc(d.buy) + '" target="_blank" rel="sponsored noopener">Buy Now</a>'
+      + "</div></article>";
+  }).join("");
+}
+document.getElementById("chips").addEventListener("click", function (e) {
+  var b = e.target.closest(".chip");
+  if (!b) return;
+  activeCat = b.getAttribute("data-cat");
+  render(window.__UPDATED__);
+});
+document.getElementById("search").addEventListener("input", function (e) {
+  query = e.target.value;
+  render(window.__UPDATED__);
+});
+function applyFeed(feed) {
+  if (feed && feed.deals && feed.deals.length) {
+    allDeals = feed.deals;
+    window.__UPDATED__ = feed.updated || FALLBACK_UPDATED;
+  } else {
+    allDeals = FALLBACK_DEALS;
+    window.__UPDATED__ = FALLBACK_UPDATED;
+  }
+  render(window.__UPDATED__);
+}
+fetch("deals.json?t=" + Date.now(), { cache: "no-store" })
+  .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+  .then(applyFeed)
+  .catch(function () { applyFeed(null); });
+</script>
+</body>
+</html>

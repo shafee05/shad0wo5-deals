@@ -1,10 +1,12 @@
-# Shad0wo5 Deals — live data
+# Shad0wo5 Deals — live data + public site
 
-This repo is the live data source for the public Shad0wo5 Deals page
-(https://muse.ai/s/shad0wo5-deals-pt6jxgxqxixa8xuv/scD-x3DpbaHCZL0G-B831aqsi13nhjbViXlYOpA9P7Y).
+This repo is the live data source AND the public site for Shad0wo5 Deals:
+https://shafee05.github.io/shad0wo5-deals/ (GitHub Pages, served from `main`).
 
-The page fetches `deals.json` from this repo on every visit, so updating
-this file updates the live page instantly — no republish needed.
+`index.html` fetches `deals.json` from the same site on every visit, so
+updating this file updates the live page instantly — no republish needed.
+(The earlier muse.ai page is retired: its hosted fetch of this repo was
+blocked, so it kept showing the built-in 26 Nov copy.)
 
 ## Format
 
